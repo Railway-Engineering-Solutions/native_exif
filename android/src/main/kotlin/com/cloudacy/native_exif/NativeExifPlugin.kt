@@ -35,12 +35,12 @@ class NativeExifPlugin: FlutterPlugin, MethodCallHandler {
       if (lat is String) {
         lat = lat.toDouble()
       } else if (lat !is Double) {
-        throw NumberFormatException("Invalid " + ExifInterface.TAG_GPS_LATITUDE + " " + exif.latLong?.get(0) + " value given. Must be of type Double or String.")
+        throw NumberFormatException("Invalid " + ExifInterface.TAG_GPS_LATITUDE + " " + (exif.latLong?.get(0) ?: "unknown") + " value given. Must be of type Double or String.")
       }
       if (long is String) {
         long = long.toDouble()
       } else if (long !is Double) {
-        throw NumberFormatException("Invalid " + ExifInterface.TAG_GPS_LONGITUDE + " " + exif.latLong?.get(1) + + " value given. Must be of type Double or String.")
+        throw NumberFormatException("Invalid " + ExifInterface.TAG_GPS_LONGITUDE + " " + (exif.latLong?.get(0) ?: "unknown") + " value given. Must be of type Double or String.")
       }
 
       exif.setLatLong(lat, long)
