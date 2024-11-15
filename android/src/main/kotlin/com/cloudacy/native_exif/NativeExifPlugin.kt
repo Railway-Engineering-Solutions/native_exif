@@ -155,7 +155,7 @@ class NativeExifPlugin: FlutterPlugin, MethodCallHandler {
         "setAttribute" -> {
           val id = call.argument<Int>("id")
           val tag = call.argument<String>("tag")
-          val value = call.argument<String>("value")
+          val value = call.argument<Any>("value")
 
           if (id == null || tag == null || value == null) {
             result.error("BAD_ARGUMENTS", "Bad arguments were given to this method.", null)
