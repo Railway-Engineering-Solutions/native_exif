@@ -51,7 +51,7 @@ class NativeExifPlugin: FlutterPlugin, MethodCallHandler {
         continue
       }
 
-      exif.setAttribute(value.key, value.value as String)
+      exif.setAttribute(value.key, value.value.toString())
     }
   }
 
